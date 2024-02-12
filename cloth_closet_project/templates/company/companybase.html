@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+   {% load static %}
+<!-- Mirrored from themepure.net/template/dukamarket/dukamarket/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Feb 2022 17:21:09 GMT -->
+<head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>CLOTH CLOSET</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Place favicon.ico in the root directory -->
+      <!-- CSS here -->
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/owl-carousel.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/swiper-bundle.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/backtotop.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/flaticon/flaticon.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/font-awesome-pro.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/default.css' %}">
+      <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+   </head>
+   <body>
+      <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+
+
+
+    
+    <!-- preloader end -->
+
+    <!-- back to top start -->
+    <div class="progress-wrap">
+         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+         </svg>
+    </div>
+      <!-- back to top end -->
+      
+    <!-- header-start -->
+    <header class="header d-blue-bg">
+
+        <div class="header-mid">
+            <div class="container">
+                <div class="heade-mid-inner">
+                    <div class="row align-items-center">
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4">
+                        <a href="{% url 'employee' %}"><h1 style="color:red;">CLOTH CLOSET</h1></a>  
+                        </div>
+                        <div class="col-xl-5 col-lg-4 d-none d-lg-block">
+                            <div class="header__search">
+                                <form action="{% url 'search-result' %}" method="GET">
+                                    <div class="header__search-box">
+                                        <input class="search-input" type="text" placeholder="I'm shopping for..." name="q">
+                                        <button class="button" type="submit"><i class="far fa-search"></i></button>
+</div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-5 col-md-8 col-sm-8">
+                            <div class="header-action">
+                                <div class="block-userlink">
+                                    {% if request.user.is_authenticated %}
+                                    <a class="icon-link" href="{% url 'signout' %}">
+                                        <i class="flaticon-user"></i>
+                                        <span class="text">
+                                            
+                                        <span class="sub">  ログアウト</span>
+                                        <span class="sub"> {{user.username}}</span>
+
+
+
+                                    </a>        
+                                    {% else %}
+                    
+                                    <a class="icon-link" href="{% url 'signin' %}">
+                                        <i class="flaticon-user"></i>
+                                        <span class="text">
+                                            
+                                        <span class="sub">ログイン</span>
+
+                                    </a>
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__bottom">
+            <div class="container">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-3">                        
+                        <div class="cat__menu-wrapper side-border d-none d-lg-block">
+                            <div class="cat-toggle">
+                                <button type="button" class="cat-toggle-btn cat-toggle-btn-1"><i class="fal fa-bars"></i>カテゴリー</button>
+                                <div class="cat__menu">
+                                    <nav id="mobile-menu" style="display: block;">
+                                        <ul>
+                                            {% for i in categories %}
+                                            <li>
+                                                <a href="{% url 'category-post-list' i.cid %}"> <img src="{{i.image.url}}" alt="" width="30" height="30" />{{i.title}} <i class="far fa-angle-down"></i></a>
+                                               
+                                            </li>
+                                            {% endfor %}
+                                            <a href="{% url 'category' %}">全てのカテゴリー</a>
+
+                                            
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-3">
+                      <div class="header__bottom-left d-flex d-xl-block align-items-center">
+                        <div class="side-menu d-lg-none mr-20">
+                          <button type="button" class="side-menu-btn offcanvas-toggle-btn"><i class="fas fa-bars"></i></button>
+                        </div>
+                        <div class="main-menu d-none d-lg-block">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'employee' %}" class="active">ホームページ <i class="far fa-angle-down"></i></a>
+
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        <strong>{{message}}</strong>
+    </div>
+     {% endfor %}
+    {% endif %}
+    <script>
+        setTimeout(() => {
+             $('.alert').alert('close')
+        }, 3000);
+    </script>
+{% block content %}
+
+{% endblock %}
+
+      <!-- JS here -->
+      <script src="{% static 'assets/js/vendor/jquery.js' %}"></script>    
+      <script src="{% static 'assets/js/vendor/waypoints.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap-bundle.js' %}"></script>
+      <script src="{% static 'assets/js/meanmenu.js' %}"></script>
+      <script src="{% static 'assets/js/swiper-bundle.js' %}"></script>
+      <script src="{% static 'assets/js/tweenmax.js' %}"></script>
+      <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+      <script src="{% static 'assets/js/magnific-popup.js' %}"></script>
+      <script src="{% static 'assets/js/parallax.js' %}"></script>
+      <script src="{% static 'assets/js/backtotop.js' %}"></script>
+      <script src="{% static 'assets/js/nice-select.js' %}"></script>
+      <script src="{% static 'assets/js/countdown.min.js' %}"></script>
+      <script src="{% static 'assets/js/counterup.js' %}"></script>
+      <script src="{% static 'assets/js/wow.js' %}"></script>
+      <script src="{% static 'assets/js/isotope-pkgd.js' %}"></script>
+      <script src="{% static 'assets/js/imagesloaded-pkgd.js' %}"></script>
+      <script src="{% static 'assets/js/ajax-form.js' %}"></script>
+      <script src="{% static 'assets/js/main.js' %}"></script>
+   </body>

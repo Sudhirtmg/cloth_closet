@@ -1,0 +1,68 @@
+{% extends 'company/companybase.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+    <div id="viewport">
+        <div id="js-scroll-content">
+
+
+
+            <section 
+                class="our-menu section bg-light repeat-img" id="menu">
+                <div class="sec-wp">
+                    <div class="container">
+                        
+                     
+                        <div class="menu-list-row">
+                            <div class="row g-xxl-5 bydefault_show" id="menu-dish">
+                                {% for i in menu %}
+
+                                <div class="col-lg-4 col-sm-6 dish-box-wp breakfast" data-cat="breakfast">
+                                    <div class="dish-box text-center">
+      
+
+                                        <div class="dist-img">
+                                            <a href="{% url 'companyprofile' i.user.username %}" class="post__user">{{ i.user.username }}
+
+                                            
+                                            <a href="{% url 'companypost-details' i.id %}">
+                                            <img src="{{i.picture.url}}" alt="" width="300" height="300">
+                                        </a>
+                                        </div>
+                                    </a>
+                                  
+                                        <div class="dish-title">
+                                            <h3 class="h3-title"><a href="{% url 'companypost-details' i.id %}">{{i.caption}}</a> </h3>
+                                        </div>
+                                        <div class="dish-info">
+                                                                                <a href="{{post.user.username}}" class="post__user">{{ post.user.username }}</a>
+
+                                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+    {% endblock %}
+
+
+

@@ -1,0 +1,78 @@
+{% extends 'company/companybase.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <!-- page-banner-area-start -->
+    <div class="page-banner-area page-banner-height-2" data-background="assets/img/banner/page-banner-4.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="page-banner-content text-center">
+                        <h4 class="breadcrumb-title">カテゴリー</h4>
+                        <div class="breadcrumb-two">
+                            <nav>
+                                <nav class="breadcrumb-trail breadcrumbs">
+                                    <ul class="breadcrumb-menu">
+                                        <li class="breadcrumb-trail">
+                                        </li><br>
+                                        <li class="trail-item">
+                                            {{categories.count}} 箇カテゴリーがあります
+
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-banner-area-end -->
+
+    <!-- news-detalis-area-start -->
+    <div class="tab-content" id="productGridTabContent">
+        <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
+            <div class="tp-wrapper">
+                <div class="row g-0">
+                    {% for c in categories %}
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="product__item product__item-d">
+                            <div class="product__thumb fix">
+
+                                <div class="product-image w-img">
+                                    <a href="{% url 'category-post-list' c.cid %}">
+                                        <img src="{{c.image.url}}" alt="product">
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="product__content-3">
+                                <a href="{% url 'category-post-list' c.cid %}">{{ c.title }}</a>
+                                <div class="rating mb-5">
+
+                                </div>
+
+                            </div>
+                            <div class="entry-meta font-xs color-grey mt-10 pb-10">
+                                <div>
+                                    <span class="hit-count mr-10">{{c.category.count}} パッケージ</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <!-- news-detalis-area-end  -->
+
+
+
+</main>
+{% endblock %}

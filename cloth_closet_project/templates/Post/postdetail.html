@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load humanize %}
+
+<head>
+    <style>
+        
+
+.date {
+    font-size: 11px
+}
+
+.comment-text {
+    font-size: 12px
+}
+
+.fs-12 {
+    font-size: 12px
+}
+
+.shadow-none {
+    box-shadow: none
+}
+
+.name {
+    color: #007bff
+}
+
+.cursor:hover {
+    color: blue
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.textarea {
+    resize: none
+}
+    </style>
+</head>
+    <main class="main-container">
+        <section class="content-container">
+            <div class="contendt">
+
+
+                <div class="posts">
+
+                    <article class="post">
+                        <div class="post__header">
+                            <div class="post__profile">
+                                <a href="#" class="post__avatar">
+                                    <img src="{{ post.user.profile.image.url }}" alt="User Picture">
+                                </a>
+                                <a href="" class="post__user">@{{ post.user.username }}</a>
+                            </div>
+
+                        </div>
+
+                        <div class="post__content">
+                            <div class="post__medias">
+                                <a href="{% url 'post-details' post.id %}"><img class="post__media" src="{{ post.picture.url }}" alt="Post Content" style="width:1000%; object-fit: contain;"></a><!--                                <img class="post__media" src="{% static 'assets1/insta-clone.png' %}" alt="Post Content">--><!--                                <img class="post__media" src="{% static 'assets1/insta-clone.png' %}" alt="Post Content">-->
+                            </div>
+                        </div>
+
+                        <div class="post__footer">
+                          
+                            <div class="post__infos">
+                              
+
+                                <div class="post__description">
+                                    <span>
+                                        <b>{{post.caption}}</b>
+                                        
+
+                                    </span><br>
+                                    <br>
+
+                                </div>
+                                <span class="post__date-time" style="color:blue;font-size: 30px;">{{post.description}}</span>
+
+                            
+                                <span class="post__date-time">{{post.posted}}</span>
+
+ 
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+{% endblock content %}

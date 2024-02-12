@@ -1,0 +1,70 @@
+{% extends 'company/companybase.html' %}
+{% load static %}
+{% block content %}
+<main>
+
+
+    <!-- product-details-start -->
+    <div class="product-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="product__details-nav d-sm-flex align-items-start">
+
+                        <div class="product__details-thumb">
+                            <div class="tab-content" id="productThumbContent">
+                                <div class="tab-pane fade show active" id="thumbOne" role="tabpanel" aria-labelledby="thumbOne-tab">
+                                    <div class="product__details-nav-thumb w-img">
+                                        <img src="{{post.picture.url}}" alt="">
+                                    </div>
+                                </div>
+
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="product__details-content">
+                       <h1><a href="{% url 'companyprofile' post.user.username %}" class="post__user">{{ post.user.username }}</a></h1> 
+
+                       
+
+                    </div>
+
+                </div>
+                <div class="cart-option mb-15">
+                   商品名：<p style="color:red;font-size: 30px;">{{post.caption}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product-details-end -->
+
+    <!-- product-details-des-start -->
+    <div class="product-details-des mt-40 mb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="product__details-des-tab">
+                        <ul class="nav nav-tabs" id="productDesTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="des-tab" data-bs-toggle="tab" data-bs-target="#des" type="button" role="tab" aria-controls="des" aria-selected="true">詳細</button>
+                            </li>
+
+                          </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="prodductDesTaContent">
+                <div class="tab-pane fade active show" id="des" role="tabpanel" aria-labelledby="des-tab">
+                    <div class="product__details-des-wrapper">
+                        <h6 class="des-sm-title">{{post.description}}</h6>
+                    </div>
+                </div>
+
+
+
+    <!-- shop modal end -->
+
+</main>
+{% endblock %}

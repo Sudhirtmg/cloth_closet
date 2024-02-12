@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .content {
+            margin-top: 50px;
+        }
+        .form-block {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+        }
+        .form-block span {
+            color: #343a40;
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            color: #343a40;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .forgot-pass {
+            color: #007bff;
+        }
+        .forgot-pass:hover {
+            color: #0056b3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="form-block">
+                <span>ログイン</span>
+                <form method="post">
+                    {% csrf_token %}
+                  <div class="form-group first">
+                    <label for="username">ユーザー名</label>
+                      {{ form.username }}
+                  </div>
+                  <div class="form-group last mb-4">
+                    <label for="username">パスワード</label>
+                    {{ form.password }}
+                  </div>
+
+                
+
+                  <input type="submit" value="ログイン" class="btn btn-pill text-white btn-block btn-primary">
+                </form><br>
+                <div class="d-flex mb-5 align-items-center">
+                    
+                  <span class="ml-auto">アカウントがない場合<br><a href="{% url 'register' %}" class="forgot-pass">新規登録</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

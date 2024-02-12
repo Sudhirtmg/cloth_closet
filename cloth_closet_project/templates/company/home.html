@@ -1,0 +1,94 @@
+{%  extends 'company/companybase.html' %}
+{% block content %}
+{% load static %}
+    <main>
+        <!-- slider-area-start -->
+        <div class="slider-area">
+            <div class="swiper-container slider__active">
+                <div class="slider-wrapper swiper-wrapper">
+                    <div class="single-slider swiper-slide slider-height d-flex align-items-center" data-background="{% static 'assets/img/slider/01-slide-1.jpg' %}">
+                        <div class="container">
+                            <div class="row">
+                               
+                            </div>
+                        </div>
+                    </div><!-- /single-slider -->
+                    <div class="single-slider swiper-slide slider-height d-flex align-items-center" data-background="{% static 'assets/img/slider/01-slide-2.jpg' %}">
+                        <div class="container">
+                            <div class="row">
+                        
+                        </div>
+                    </div><!-- /single-slider -->
+                    <div class="single-slider swiper-slide slider-height d-flex align-items-center" data-background="{% static 'assets/img/slider/01-slide-3.jpg'}">
+                        <div class="container">
+                        
+                        </div>
+                    </div><!-- /single-slider -->
+                    <div class="main-slider-paginations"></div>
+                </div>
+            </div>
+        </div>
+        <!-- slider-area-end -->
+
+
+<br>
+        <div style="background-color: #ff0000; height: 20px; "></div> <!-- Red background color -->
+
+
+        <!-- topsell__area-start -->
+        <div class="tab-content" id="productGridTabContent">
+            <div class="tab-pane fade  show active" id="FourCol" role="tabpanel" aria-labelledby="FourCol-tab">
+                <div class="tp-wrapper">
+                    <div class="row g-0">
+                        {% for post in post_items %}
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item product__item-d">
+                                <div class="product__thumb fix">
+                                    <a href="{{post.user.username}}" class="post__user">{{ post.user.username }}</a>
+
+                                    <div class="product-image w-img">
+                                        <a href="{% url 'companypost-details' post.pk %}">
+                                            <img src="{{post.picture.url}}" alt="product">
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="#" class="icon-box icon-box-1" data-bs-toggle="modal" data-bs-target="#productModalId">
+                                            <i class="fal fa-eye"></i>
+                                            <i class="fal fa-eye"></i>
+                                        </a>
+                                        <a href="#" class="icon-box icon-box-1">
+                                            <i class="fal fa-heart"></i>
+                                            <i class="fal fa-heart"></i>
+                                        </a>
+                                        <a href="#" class="icon-box icon-box-1">
+                                            <i class="fal fa-layer-group"></i>
+                                            <i class="fal fa-layer-group"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product__content-3">
+                                    <h6><a href="{% url 'companypost-details' post.pk %}">{{post.caption}}</a></h6>
+                                    <div class="rating mb-5">
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- topsell__area-end -->
+
+        <div style="background-color: #ff0000; height: 20px; "></div> <!-- Red background color -->
+
+    </main>
+{% endblock %}
+
+
+
